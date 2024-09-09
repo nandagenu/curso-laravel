@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/empresa', function() {
     return view('site/empresa');
 });
@@ -43,4 +44,43 @@ Route::get('/news', function() {
 
 Route::get('/novidades', function (){
     return redirect()->route('noticias');
+});
+*/
+
+/*
+Route::name('admin.')->group(function(){
+    Route::get('admin/dashboard', function() {
+        return "dashboard";
+    })->name('dashboard');
+    
+    Route::get('admin/users', function() {
+        return "users";
+    })->name('users');
+    
+    Route::get('admin/clientes', function() {
+        return "clientes";
+    })->name('clientes');
+});
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.'
+], function(){
+
+    Route::get('dashboard', function() {
+        return "dashboard";
+    })->name('dashboard');
+    
+    Route::get('users', function() {
+        return "users";
+    })->name('users');
+    
+    Route::get('clientes', function() {
+        return "clientes";
+    })->name('clientes');
 });
