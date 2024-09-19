@@ -15,7 +15,7 @@ return new class extends Migration
             $table->text('descricao'); // o tipo TEXT armazena maiores quantidades de texto
             $table->double('preco', 10,2);
             $table->string('slug'); // título para URL
-            $table->string('imagem'); // passa o caminho da imagem
+            $table->string('imagem')->nullable(); // passa o caminho da imagem
 
             $table->unsignedBigInteger('id_user'); //relação de usuários
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); // config da chave estrangeira de usuário
