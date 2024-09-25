@@ -2,32 +2,22 @@
 @section('title', 'Essa é a página HOME')
 @section('conteudo')
 
-{{--Estrutura de Controle--}}
-@if ($nome == 'rodrigo')
-    true
-@else
-    false
-@endif
+{{--Estruturas de Repetição--}}
 
-@unless ($nome == 'rodrigo') {{--Imprime o true se essa condição for falsa--}}
-    true
-@else
-    false
-@endunless
+@for ($i = 0; $i < $count; $i++)
+    valor atual é {{ $i }} <br>
+@endfor
 
-@switch($idade)
-    @case(27)
-        idade está ok
-        @break
-    @case(29)
-        idade está errada
-        @break
-    @default
-        default
-@endswitch
+@php $i = 0;
+@endphp
 
-@isset($nome)
-    existe
-@endisset
+@while ($i <= 15)
+    valor atual é {{ $i }} <br>
+    @php $i++ @endphp
+@endwhile
+
+@foreach ($frutas as $fruta)
+    {{ $fruta }} <br>
+@endforeach
 
 @endsection
